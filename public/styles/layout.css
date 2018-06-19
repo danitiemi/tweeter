@@ -26,8 +26,14 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container {
+main {
   width: 450px;
+  height: 600px;
   background-color: white;
   margin: 140px auto 0 auto;
+  overflow: auto;
  }
+
+ /*.container {
+
+ }*/
