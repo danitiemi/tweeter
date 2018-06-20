@@ -28,12 +28,9 @@ body {
 
 main {
   width: 450px;
-  height: 600px;
+  height: auto;
   background-color: white;
   margin: 140px auto 0 auto;
   overflow: auto;
  }
 
- /*.container {
-
- }*/

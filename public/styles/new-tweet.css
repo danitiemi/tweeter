@@ -1,5 +1,5 @@
 .new-tweet {
-  width: 370px;
+  width: 380px;
   background-color: #eee;
   margin: 140px auto 0 auto;
   overflow: auto;
@@ -9,10 +9,8 @@
   padding: 1em 1em;
 }
 
-h2 {
-  border-bottom-color: #244751;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+.compose-tweet {
+  border-bottom: #244751 1px solid;
   text-align: left;
 }
 
@@ -21,7 +19,7 @@ textarea {
   width: 330px;
 }
 
-span.counter {
+.counter {
   bottom: 0;
   right: 0;
   float: right;
