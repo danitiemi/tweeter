@@ -7,15 +7,15 @@
 
 // responsible for taking in an array of tweet objects and then appending each one to the #tweets-container.
 function renderTweets (tweets) {
-
+  let singleTweet = {};
+  let data = $('#tweetsContainer');
   // let data = [];
   // loops through tweets calls createTweetElement for each tweet
   for (tweet in tweets) {
-    let singleTweet = createTweetElement(tweet);
+    singleTweet = createTweetElement(tweet);
+    data = data.append(singleTweet);
   }
   // takes return value and appends it to the tweets container
-  data = $('#tweetsContainer').append(singleTweet);
-
   return data;
 }
 
@@ -23,17 +23,22 @@ function renderTweets (tweets) {
 // a tweet <article> element containing the entire HTML structure of the tweet
 function createTweetElement (tweet) {
   // returns a tweet <article>
-  //var $tweet = $("<article>").addClass("tweet");
+  let $tweet = $("<article>").addClass("tweet");
   let username = tweet.user.name;
   let image = tweet.user.avatars.small;
   let nickname = tweet.user.handle;
   let content = tweet.content.text;
   let tweetDate = tweet.created_at;
+  let markedTweet = `<header>${image}<span>${username}</span><span>${nickname}</span></header><section><p>${content}</p></section><footer><span>${tweetDate}</span>`;
 
-  return `<header>${image}<span>${username}</span><span>${nickname}</span></header><section><p>${content}</p></section><footer><span>${tweetDate}</span>`;
+  $tweet = $tweet.append(markedTweet)
+
+  return $tweet;
 }
 
-renderTweets(data);
+
+renderTweets();
+
 
 
 const tweetData = {
