@@ -42,9 +42,13 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <span class="button">
+        <button><i class="fas fa-edit">Compose</i></button>
+      </span>
     </nav>
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section class="new-tweet">
         <h2 class= "compose-tweet">Compose Tweet</h2>
         <form method="POST" action="/tweets/">
@@ -55,7 +59,6 @@
       </section>
       <!-- tweet feed -->
       <section id="tweetsContainer" class="feed">
-
         <article class="tweet">
           <header>
             <!-- image -->

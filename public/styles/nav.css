@@ -23,3 +23,23 @@
   line-height: 2.5em;
   float: left;
 }
+
+#nav-bar .button {
+  float: right;
+  margin: 15px 10px 10px 0;
+}
+
+#nav-bar .button button {
+  border-radius: 8px;
+  height: 50px;
+  width: 110px;
+  background-color: #d0f7f3;
+}
+
+#nav-bar:hover .button button {
+  cursor: pointer;
+  border: 1.5px, black solid;
+  background-color: white;
+  color: black;
+}
+
