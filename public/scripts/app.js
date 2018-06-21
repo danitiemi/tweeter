@@ -91,12 +91,22 @@ $(document).ready(function() {
     })
   }
 
+  loadTweets();
+
+
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+
   $("button").click(function() {
-    $(".new-tweet").slideToggle("slow");
+    $(".new-tweet").toggle("slow");
     $("textarea").focus();
   });
 
 });
   // Test / driver code (temporary)
    // to see what it looks like
-  $('#tweetsContainer').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  // $('#tweetsContainer').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
