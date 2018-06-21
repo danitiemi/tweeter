@@ -46,8 +46,8 @@ $(document).ready(function() {
 
     tweetData = $("<article>").addClass("tweet");
     tweetData = `<header>${image}<span>${username}</span><span>${nickname}</span></header><section><p>${content}</p></section><footer><span>${tweetDate}</span>`;
-
-    return $tweet;
+// console.log(tweet);
+    return tweetData;
   }
 
   var $tweet = createTweetElement(tweetData);
@@ -56,11 +56,11 @@ $(document).ready(function() {
 
   // form submission
   // Flash-messages: form submit handler to disallow form submission in the event that the tweet area is empty or exceeds the 140 character limit.
-  $('input').on('submit', function(e) {
+  $("input").on("submit", function(e) {
 
     e.preventDefault();
     // 1. Get the data from the from
-    if ($(".new-tweet").val().length > 0 || $(".new-tweet").val().length < 140) {
+    if ($(".new-tweet").val().length > 0 && $(".new-tweet").val().length < 140) {
       let data = $('form').serialize();
       // 2. Make a AJAX request using that data
       $.ajax("/tweets", {
@@ -80,7 +80,7 @@ $(document).ready(function() {
   // It will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
   function loadTweets () {
     $.ajax("/tweets", {
-      url: "http://localhost:8080/tweets",
+      // url: "http://localhost:8080/tweets",
       method: "GET",
       success: function(tweet){
         renderTweets(tweet);
@@ -102,7 +102,7 @@ $(document).ready(function() {
 
 
   $("button").click(function() {
-    $(".new-tweet").toggle("slow");
+    $(".new-tweet").slideToggle("slow");
     $("textarea").focus();
   });
 
