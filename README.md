@@ -25,4 +25,11 @@ Tweeter is a simple, single-page Twitter clone.
 - Express
 - MongoDB
 
+## Screenshots
+
+!["Screenshot of the new tweet compose box"](https://github.com/danitiemi/tweeter/blob/master/docs/new-tweet-box.png?raw=true)
+
+!["Screenshot of tweet-feed"](https://github.com/danitiemi/tweeter/blob/master/docs/tweet-feed.png?raw=true)
+
+!["Screenshot of error alert box"](https://github.com/danitiemi/tweeter/blob/master/docs/error-alert-box.png?raw=true)
 
