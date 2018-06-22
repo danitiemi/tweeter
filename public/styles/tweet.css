@@ -1,19 +1,14 @@
-.feed {
-  width: 380px;
-  background-color: white;
-  margin: 20px auto 0 auto;
-  overflow: auto;
-  border-color: #c7c4c4;
-  border-style: outset;
-  border-radius: 5px;
-
-}
-
+/* -- #tweetsContainer -- */
  article.tweet {
+  margin: 0 auto;
+  width: 400px;
+  background-color: white;
   border: #eee 0.3px solid;
   position: top;
   overflow: auto;
   margin-bottom: 10px;
+  border: #c7c4c4 solid;
+  border-radius: 10px;
 }
 
 .tweet header {
@@ -35,7 +30,7 @@
 }
 
 .user {
-  font-size: 1.3em;
+  font-size: 3em;
   font-weight: bold;
   line-height: 1.5em;
   float: left;
@@ -57,9 +52,7 @@
   filter: opacity(.6);
   border-top: grey 0.4px solid;
   height: 25px;
-  padding: 2.5px;
-  /*display: inline-block;*/
-  /*overflow: auto;*/
+  padding: 4px;
 }
 
 .date {
@@ -92,9 +85,6 @@
   filter: opacity(0);
 }
 
-/*article#tweet:hover footer span {
-}
-*/
 /* hover effects */
 
 .tweet:hover{
@@ -129,23 +119,4 @@
     -webkit-transition-duration: 500ms;
 }
 
-/*#tweet:hover span{
-  border: 10px solid yellow;
-}
-
-#tweet:hover span{
-  border: 10px solid yellow;
-}
-
-*/
-
-/*#tweet article {
-  border: #eee 0.3px solid;
-  text-align: top;
-  padding: 1em;
-  font: 30px bold;
-  position: top;
-  overflow: auto;
-  height: 250px;
-}*/
 

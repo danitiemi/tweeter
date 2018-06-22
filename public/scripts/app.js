@@ -72,9 +72,9 @@ $(document).ready(function() {
   function createTweetElement (tweet) {
     // returns a tweet <article>
     let $tweet = $("<article>").addClass("tweet");
+    let now = moment(tweet.created_at).startOf('hour').fromNow();
 
-    let tweetData = `<header><img class="logo" src="${tweet.user.avatars.small}"><span class="user">${tweet.user.name}</span><span class="user_nickname">${tweet.user.handle}</span></header><section class="tweet_text"><p>${tweet.content.text}</p></section><footer><span class="date">${tweet.created_at}</span><span class= "flag"><i class="fas fa-flag"></i></span><span class= "retweet"><i class="fas fa-retweet"></i></span><span class= "like"><i class="fas fa-heart"></i></span></footer>`;
-// console.log(tweetData);
+    let tweetData = `<header><img class="logo" src="${tweet.user.avatars.small}"><span tweetclass="user">${tweet.user.name}</span><span class="user_nickname">${tweet.user.handle}</span></header><section class="tweet_text"><p>${tweet.content.text}</p></section><footer><span class="date">${now}</span><span class= "flag"><i class="fas fa-flag"></i></span><span class= "retweet"><i class="fas fa-retweet"></i></span><span class="like"><i class="fas fa-heart"></i></span></footer>`;
     $tweet =  $tweet.append(tweetData);
     return $tweet;
     console.log($tweet)
@@ -104,7 +104,7 @@ $(document).ready(function() {
       }).done(function(data) {
         $("#tweetsContainer").load(loadTweets());
         $("#input").val("");
-            // $(".counter").;
+        $(".counter").text("140");
       });
     }
   });

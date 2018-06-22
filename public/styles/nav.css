@@ -8,6 +8,7 @@
   padding: 0 2em;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 #nav-bar .logo {
@@ -34,6 +35,7 @@
   height: 50px;
   width: 110px;
   background-color: #d0f7f3;
+  color: #00a087;
 }
 
 #nav-bar:hover .button button {
