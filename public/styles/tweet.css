@@ -1,5 +1,5 @@
 /* -- #tweetsContainer -- */
- article.tweet {
+  #tweetsContainer article.tweet {
   margin: 0 auto;
   width: 400px;
   background-color: white;
@@ -19,7 +19,7 @@
   padding: 0.3em;
 }
 
-.tweet img {
+#tweetsContainer .tweet img {
   width: 50px;
   height: 50px;
   margin-right: 10px;
@@ -28,26 +28,26 @@
   border-radius: 0.3px;
 }
 
-.user {
+#tweetsContainer .user {
   font-size: 1.5em;
   font-weight: bold;
   float: left;
 }
 
-.user_nickname {
+#tweetsContainer .user_nickname {
   font-size: 0.7em;
   line-height: 3em;
   float: right;
 }
 
-.tweet_text {
+#tweetsContainer .tweet_text {
   filter: opacity(.4);
   color: black;
   height: 70px;
   margin: 0 6px;
 }
 
-.tweet footer {
+#tweetsContainer .tweet footer {
   filter: opacity(.4);
   border-top: black 0.4px solid;
   height: 25px;
@@ -111,6 +111,4 @@ article.tweet:hover footer span {
     -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
 }
-
-
 

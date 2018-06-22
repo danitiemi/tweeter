@@ -2,9 +2,14 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-- Primarily a client-side Single Page App (SPA)
-- The client-side app communicates with a server via AJAX
-- Tweets are persisted to MongoDB and survive server restart
+Just tweet out 140 characters to the world!
+
+## Technical Information
+
+- Primarily a client-side Single Page App (SPA).
+- The client-side app communicates with a server via AJAX.
+- Tweets are persisted to MongoDB and survive server restart.
+- *Login not yet implemented*
 
 ## Dependencies
 
