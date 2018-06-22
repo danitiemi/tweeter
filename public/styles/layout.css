@@ -29,8 +29,10 @@ body {
 main {
   width: 450px;
   height: auto;
+  margin: 0 auto;
+  padding-top: 140px;
   background-color: white;
-  margin: 140px auto 0 auto;
+
   /*overflow: auto;*/
  }
 

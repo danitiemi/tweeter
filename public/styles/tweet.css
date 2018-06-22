@@ -6,17 +6,14 @@
   border-color: #c7c4c4;
   border-style: outset;
   border-radius: 5px;
-  /*padding: 1em 1em;*/
+
 }
 
-.tweet article {
+ article.tweet {
   border: #eee 0.3px solid;
-  text-align: top;
-  /*padding: 1em;*/
-  font: 30px bold;
   position: top;
   overflow: auto;
-  height: 250px;
+  margin-bottom: 10px;
 }
 
 .tweet header {

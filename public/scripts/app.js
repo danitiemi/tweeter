@@ -5,7 +5,8 @@
    */
 $(document).ready(function() {
 
-  const tweetData = {
+  const tweetDb = [
+  {
     "user": {
       "name": "Newton",
       "avatars": {
@@ -19,61 +20,92 @@ $(document).ready(function() {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
     "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": {
+        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+      },
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  },
+  {
+    "user": {
+      "name": "Johann von Goethe",
+      "avatars": {
+        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+      },
+      "handle": "@johann49"
+    },
+    "content": {
+      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+    },
+    "created_at": 1461113796368
   }
+];
+
 
   // responsible for taking in an array of tweet objects and then appending each one to the #tweets-container.
   function renderTweets (tweets) {
-
+    let $html= $("<div>");
     // loops through tweets calls createTweetElement for each tweet
-    for (tweet in tweets) {
-      let singleTweet = createTweetElement(tweet);
-      $('#tweetsContainer').prepend(singleTweet);
-    }
+    tweets.forEach (function(tweet) {
+      $html = $html.prepend(createTweetElement(tweet));
+     });
+
+    $('#tweetsContainer').html($html);
+
     // takes return value and appends it to the tweets container
-    return $('#tweetsContainer');
+   // return renderTweets;
   }
 
   // function that takes in a tweet object and is responsible for returning
   // a tweet <article> element containing the entire HTML structure of the tweet
   function createTweetElement (tweet) {
     // returns a tweet <article>
-    let tweetData = $("<article>").addClass("tweet");
-    let username = tweet.user.name;
-    let image = tweet.user.avatars.small;
-    let nickname = tweet.user.handle;
-    let content = tweet.content.text;
-    let tweetDate = tweet.created_at;
+    let $tweet = $("<article>").addClass("tweet");
 
-    tweetData = $("<article>").addClass("tweet");
-    tweetData = `<header>${image}<span>${username}</span><span>${nickname}</span></header><section><p>${content}</p></section><footer><span>${tweetDate}</span>`;
-// console.log(tweet);
-    return tweetData;
+    let tweetData = `<header><img class="logo" src="${tweet.user.avatars.small}"><span class="user">${tweet.user.name}</span><span class="user_nickname">${tweet.user.handle}</span></header><section class="tweet_text"><p>${tweet.content.text}</p></section><footer><span class="date">${tweet.created_at}</span><span class= "flag"><i class="fas fa-flag"></i></span><span class= "retweet"><i class="fas fa-retweet"></i></span><span class= "like"><i class="fas fa-heart"></i></span></footer>`;
+// console.log(tweetData);
+    $tweet =  $tweet.append(tweetData);
+    return $tweet;
+    console.log($tweet)
   }
 
-  var $tweet = createTweetElement(tweetData);
-  console.log($tweet);
-  renderTweets();
+  // var $tweet = createTweetElement(tweetData);
+  // console.log($tweet);
+  // renderTweets();
 
   // form submission
   // Flash-messages: form submit handler to disallow form submission in the event that the tweet area is empty or exceeds the 140 character limit.
-  $("input").on("submit", function(e) {
+  $("form").on("submit", function(e) {
 
     e.preventDefault();
+    let data = $('form').serialize();
+    let inputArea = $('#input').val();
     // 1. Get the data from the from
-    if ($(".new-tweet").val().length > 0 && $(".new-tweet").val().length < 140) {
-      let data = $('form').serialize();
+    if (!inputArea) {
+      alert("Maybe you forgot something...")
+    } else if (inputArea.length > 140) {
+      alert("Sorry! It's more than 140.")
+    } else {
       // 2. Make a AJAX request using that data
       $.ajax("/tweets", {
         method: "POST",
         data: data
       }).done(function(data) {
         $("#tweetsContainer").load(loadTweets());
-        $("form textarea").val("");
+        $("#input").val("");
+            // $(".counter").;
       });
-    } else if ($(".new-tweet").val().length > 140) {
-      console.error("Sorry! It's more than 140.");
-    } else {
-      console.error("Maybe you forgot something...");
     }
   });
 
@@ -82,13 +114,8 @@ $(document).ready(function() {
     $.ajax("/tweets", {
       // url: "http://localhost:8080/tweets",
       method: "GET",
-      success: function(tweet){
-        renderTweets(tweet);
-      },
-      error: function() {
-        console.error("No Tweet for you...")
-      }
-    })
+      success: renderTweets
+      });
   }
 
   loadTweets();
