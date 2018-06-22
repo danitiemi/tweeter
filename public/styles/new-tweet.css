@@ -5,13 +5,18 @@ section.new-tweet {
   overflow: auto;
   border: #c7c4c4 solid;
   border-radius: 10px;
-  padding: 0 0.5em 0.25em 0.5em;
+  padding: 0 0.7em 0.25em 0.7em;
   display: none;
+  text-align: center;
 }
 
 .compose-tweet {
   border-bottom: #244751 1px solid;
   text-align: left;
+}
+
+.new-tweet form input {
+  float: left;
 }
 
 textarea {
